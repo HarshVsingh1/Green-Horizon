@@ -24,7 +24,7 @@ export default function WorkSection() {
                
                       <div className='flex items-center justify-center gap-5 w-1/2 ' > 
                                <div>
-                                      <img className='h-24' src={camera} />
+                                      <img className='h-28' src={camera} />
                                </div>
                         <div className='flex gap-4 flex-col' >
                                 <div className="text-5xl font-[roboto] " >
@@ -38,7 +38,7 @@ export default function WorkSection() {
                                        duration: 0.8,
                                        ease: "easeInOut",
                                      }}
-                                 className="text-xl font-[Abel]" >
+                                 className="text-xl font-[roboto]" >
                                                  Ensure the leaf is fully visible and well-lit. A clear image helps our AI accurately analyze and detect any signs of disease.
                                 </motion.div>
                         </div>
@@ -47,7 +47,7 @@ export default function WorkSection() {
                       </div>
                       <div className='flex items-center justify-center gap-5 w-1/2' > 
                                <div>
-                                      <img className='h-24' src={ai} />
+                                      <img className='h-28' src={ai} />
                                </div>
                         <div className='flex gap-4 flex-col' >
                                 <div className="text-5xl font-[roboto]" >
@@ -61,7 +61,7 @@ export default function WorkSection() {
                                      duration: 0.8,
                                      ease: "easeInOut",
                                    }}
-                                 className="text-xl font-[Abel]" >
+                                 className="text-xl font-[roboto]" >
                                                   Click "Upload" to submit your leaf image. Our easy-to-use interface makes it simple to send the photo for analysis with just one click.
                                 </motion.div>
                         </div>
@@ -79,7 +79,7 @@ export default function WorkSection() {
                
                       <div className='flex items-center justify-center gap-5 w-1/2' > 
                                <div>
-                                      <img className='h-24' src={result} />
+                                      <img className='h-28' src={result} />
                                </div>
                         <div className='flex gap-4 flex-col' >
                                 <div className="text-5xl font-[roboto] " >
@@ -93,7 +93,7 @@ export default function WorkSection() {
                                      duration: 0.8,
                                      ease: "easeInOut",
                                    }}
-                                 className="text-xl font-[Abel]" >
+                                 className="text-xl font-[roboto]" >
                                                   In seconds, our AI scans your image and identifies potential diseases. You’ll receive a detailed report with insights on the detected issue.
                                  </motion.div>
                         </div>
@@ -102,7 +102,7 @@ export default function WorkSection() {
                       </div>
                       <div className='flex items-center justify-center gap-5 w-1/2' > 
                                <div>
-                                      <img className='h-24' src={ai} />
+                                      <img className='h-28' src={ai} />
                                </div>
                         <div className='flex gap-4 flex-col' >
                                 <div className="text-5xl font-[roboto]" >
@@ -116,7 +116,7 @@ export default function WorkSection() {
                                     duration: 0.8,
                                     ease: "easeInOut",
                                   }}
-                                 className="text-xl font-[Abel]" >
+                                 className="text-xl font-[roboto]" >
                                                     Each result includes care instructions and treatment tips tailored to the disease. Take action and keep your plants healthy!
                                  </motion.div>
                         </div>

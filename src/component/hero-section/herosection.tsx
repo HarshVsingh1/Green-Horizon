@@ -12,8 +12,8 @@ export default function Herosection() {
                      Our advanced AI technology detects plant diseases through leaf images, <br /> helping you ensure healthier crops and higher yields.
                      </div>
                      <div className='my-14 flex gap-10' >
-                     <Button variant="contained">Join now</Button>
-                     <Button variant="outlined">Contact us</Button>
+                     <Button  sx={{backgroundColor : 'green'}} variant="contained">Join now</Button>
+                     <Button sx={{color : 'green' , borderBlockColor : 'green'}} variant="outlined">Contact us</Button>
                      </div>
             </div>
             <div>

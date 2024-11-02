@@ -5,7 +5,7 @@ export default function SupportSection() {
         <div>
               <div>Our Supported Crops</div>
 
-
+                 
         </div>
     )
 }
