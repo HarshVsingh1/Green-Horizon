@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
 import axios from "axios";
-import { HtmlHTMLAttributes, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 
 
 const VisuallyHiddenInput = styled('input')({
@@ -31,7 +31,7 @@ const ddd =  [
     {
       "name": "Pepper__bell___healthy",
       "symptoms": "No disease present.",
-      "care": [
+      "treatment": [
         "Maintain regular watering and fertilizer schedules.",
         "Monitor for early signs of disease or pests.",
         "Rotate crops to prevent soilborne diseases."
@@ -60,7 +60,7 @@ const ddd =  [
     {
       "name": "Potato___healthy",
       "symptoms": "No disease present.",
-      "care": [
+      "treatment": [
         "Maintain well-drained soil and monitor for early signs of blight or pests.",
         "Rotate crops yearly to reduce disease risks.",
         "Mulch to prevent weeds and conserve moisture."
@@ -169,13 +169,25 @@ const ddd =  [
 
 
 
+interface responseType {
+   name : string ,
+   symptoms : string ,
+   treatment : string[]
+}
+
+interface resultType {
+  class : string ,
+  class_id : number ,
+  confidence : number
+}
+
 
 export default function ProductUse() {
 
     const [base64Image,setImage] = useState<string>()
-    const [result,setResult] = useState('')
+    const [result,setResult] = useState<resultType | null >(null)
     const [loading, setLoading] = useState(false);
-    const [response , setResponse ] = useState([])
+    const [response , setResponse ] = useState<responseType >()
     
     const apiKey = "nhlnwpW2OchoU26ETf0G";
 
@@ -208,15 +220,14 @@ export default function ProductUse() {
               data: base64String, 
               headers: { "Content-Type": "application/x-www-form-urlencoded" },
           });
-            console.log("Response from API:", response.data);
-            console.log("Response from API:", response.data);
             setResult(response.data.predictions[0])
+            console.log("hi")
 
             setLoading(true)
             console.log(response.data.predictions[0])
           } catch (error) {
             console.error("Error:", error);
-            setResult("Error fetching result");
+            // setResult("Error fetching result");
           }
         };
         reader.readAsDataURL(file); 
@@ -225,16 +236,22 @@ export default function ProductUse() {
 
     useEffect(() => {
       if (result && result.class) {
-          const match = ddd.find(Element => {
+          const match = ddd.find((Element) => {
               const normalizedClass = result.class.toLowerCase().replace(/_+/g, '_');
               const normalizedName = Element.name.toLowerCase().replace(/_+/g, '_');
               return normalizedClass === normalizedName;
           });
-
-          console.log("Match found:", match);
-          setResponse(match ? match : { symptoms: "No match found." });
+  
+          if (match) {
+              setResponse(match);
+          } else {
+              console.error("No match found for class:", result.class);
+              // Optionally set response to an empty object or default values
+              setResponse({ name: 'Unknown', symptoms: 'No information available.', treatment: [] });
+          }
       }
-  }, [result]); 
+  }, [result]);
+  
 
     return (
         <div className="bg-black flex justify-center items-center text-white" >
@@ -267,7 +284,7 @@ export default function ProductUse() {
                                         RESULT
                                        </div>
                                        <div>
-                                         {loading && result.class}
+                                         {loading && result?.class}
                                        </div>
             
                                 </div>
@@ -276,7 +293,7 @@ export default function ProductUse() {
                                       Accuracy
                                     </div>
                                     <div>
-                                      {loading && result.confidence*100}
+                                      <div>{loading ? 'Loading...' : result ? (result.confidence * 100).toFixed(2) + '%' : 'N/A'}</div>
                                     </div>
                                     
                               </div>
@@ -285,7 +302,7 @@ export default function ProductUse() {
                                         SYMPTOMS
                                        </div>
                                        <div>
-                                       {loading && response.symptoms}
+                                       {loading && response?.symptoms}
                                        </div>
             
                                 </div>
@@ -295,7 +312,7 @@ export default function ProductUse() {
                                         TREATMENT
                                        </div>
                                        <div>
-                                       {loading && response.treatment ? (
+                                       {loading && response?.treatment ? (
                                               response.treatment.map((text, index) => (
                                                 <p key={index}>{text}</p>
                                               ))
