@@ -293,7 +293,11 @@ export default function ProductUse() {
                                       Accuracy
                                     </div>
                                     <div>
-                                      <div>{loading ? 'Loading...' : result ? (result.confidence * 100).toFixed(2) + '%' : 'N/A'}</div>
+                                    <div>
+    {loading 
+      ? (result ? (result.confidence * 100).toFixed(2) + '%' : 'N/A') 
+      : 'Loading...'}
+  </div>
                                     </div>
                                     
                               </div>
