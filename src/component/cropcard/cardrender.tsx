@@ -31,7 +31,7 @@ export default function CropCardRender() {
         <div className="flex  justify-evenly bg-black py-24 flex-wrap gap-4"> 
        
        {data.map((item, index) => (
-         <ActionAreaCard className='bg-black text-white' key={index} data={item} />
+         <ActionAreaCard  key={index} data={item} />
        ))}
      </div>
       </div>

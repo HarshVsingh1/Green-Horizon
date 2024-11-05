@@ -1,11 +1,9 @@
 import CropCardRender from "./component/cropcard/cardrender";
 import Footer from "./component/footer/footer";
 import Herosection from "./component/hero-section/herosection";
-import WorkSection from "./component/how-it-works/herosection";
-import WorkingSection from "./component/how-it-works/howItWorks";
+import WorkSection from "./component/how-it-works/howitworksection";
 import Navbar from "./component/navbar/navbar";
 import ProductUse from "./component/productuse/productuse";
-import SupportSection from "./component/supportedSection.tsx/supportSection";
 
 
 export default function Homepage() {

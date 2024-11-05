@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <div className="relative z-10 bg-black text-white">
+    <div className="relative z-10 py-10 bg-black text-white">
       <div className="flex flex-col md:flex-row justify-between py-3 mx-auto max-w-screen-lg px-4">
         
         {/* First Section */}
@@ -18,18 +18,16 @@ export default function Footer() {
 
         {/* Second Section */}
         <div className="flex md:w-1/2 justify-evenly mt-6 md:mt-0">
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-3">
             <NavLink to="/sizechart" className="text-gray-500 text-sm font-roboto hover:underline">SIZE CHART</NavLink>
-            <NavLink to="/return-policy" className="text-gray-500 text-sm font-roboto hover:underline">EXCHANGE/RETURN POLICY</NavLink>
             <NavLink to="/privacy-policy" className="text-gray-500 text-sm font-roboto hover:underline">PRIVACY POLICY</NavLink>
             <NavLink to="/termsandconditions" className="text-gray-500 text-sm font-roboto hover:underline">TERMS AND CONDITION</NavLink>
             <NavLink to="/faqs" className="text-gray-500 text-sm font-roboto hover:underline">FAQ</NavLink>
           </div>
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-3">
             <NavLink to="/about" className="text-gray-500 text-sm font-roboto hover:underline">ABOUT US</NavLink>
             <NavLink to="/joinourteam" className="text-gray-500 text-sm font-roboto hover:underline">CAREERS</NavLink>
             <NavLink to="/contactus" className="text-gray-500 text-sm font-roboto hover:underline">CONTACT US</NavLink>
-            <NavLink to="/collab" className="text-gray-500 text-sm font-roboto hover:underline">INFLUENCERS COLLAB</NavLink>
           </div>
         </div>
       </div>

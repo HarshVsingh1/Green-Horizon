@@ -1,7 +1,7 @@
 import result from '../../assets/check.png'
 import camera from '../../assets/camera.png'
 import ai from '../../assets/ai-assistant.png'
-import {easeIn, easeInOut, easeOut, motion, useInView} from 'framer-motion'
+import { easeOut, motion, useInView} from 'framer-motion'
 import { useRef } from 'react'
 export default function WorkSection() {
        const ref = useRef(null)
